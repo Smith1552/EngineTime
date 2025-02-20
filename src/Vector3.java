@@ -30,7 +30,8 @@ public class Vector3 {
     void normalize(){
         float mag = magnitude();
         if(mag > 0){
-            //I can't quite parse this part
+            //this *= ((float) 1)/mag;
+            //see page 23
         }
     }
 
@@ -39,6 +40,7 @@ public class Vector3 {
         y *= value;
         z *= value;
         return this;//no idea what this returns tbh
+                    //nvm figured it out it's the main vector
     }
 
     Vector3 addThis(float value){
@@ -61,12 +63,14 @@ public class Vector3 {
         z += vector.z * scale;
     }
 
-    //generate component products
+    //generate component product
     Vector3 componentProduct(Vector3 vector){
-        return new Vector3(x*vector.x, y*vector.y, z*vector.z);
+        return new Vector3(x*vector.x,
+                           y*vector.y,
+                           z*vector.z);
     }
 
-    //update the vector
+    //generate component product and replace current vector w/ this one
     void componentProductUpdate(Vector3 vector){
         x *= vector.x;
         y *= vector.y;
@@ -76,22 +80,21 @@ public class Vector3 {
     float scalarProduct(Vector3 vector){
         return x * vector.x + y * vector.y + z * vector.z;
     }
-
+    //calculates the vector product of the current vector and the given vector
     Vector3 vectorProduct(Vector3 vector){
         return new Vector3(y*vector.z-z*vector.y,
                            z*vector.x-x*vector.z,
                            x*vector.y-y*vector.x);
     }
-    /**
-     * Updates this vector to be the vector product of its current
-     * value and the given vector.
-     */
-    void updateVectorWithProduct(Vector3 vector){
-         //again I have no idea what's going on here (pg 32)
+
+    //updates the current vector with its vector product
+    void vectorProductUpdate(Vector3 vector){
+        //pointers would be pretty cool right about now
+        Vector3 update = this.vectorProduct(vector);
+        this.x = update.x;
+        this.y = update.y;
+        this.z = update.z;
     }
+    //see page 32
 
-
-
-
-
-}
+}//end Vector3
