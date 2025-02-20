@@ -22,7 +22,7 @@ public class Vector3 {
     public float magnitude(){
         return (float)Math.sqrt(x*x + y*y + z*z);
     }
-    //slightly faster as it avoids square root
+    //returns magnitude slightly faster as it avoids square root
     float squaredMagnitude(){
         return x*x + y*y + z*z;
     }
@@ -30,8 +30,9 @@ public class Vector3 {
     public void normalize(){
         float mag = magnitude();
         if(mag > 0){
-            //this *= ((float) 1)/mag;
-            //see page 23
+            this.x /= mag;
+            this.y /= mag;
+            this.z /= mag;
         }
     }
 
