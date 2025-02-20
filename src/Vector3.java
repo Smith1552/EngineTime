@@ -19,7 +19,7 @@ public class Vector3 {
     }
 
     //returns magnitude
-    float magnitude(){
+    public float magnitude(){
         return (float)Math.sqrt(x*x + y*y + z*z);
     }
     //slightly faster as it avoids square root
@@ -27,7 +27,7 @@ public class Vector3 {
         return x*x + y*y + z*z;
     }
 
-    void normalize(){
+    public void normalize(){
         float mag = magnitude();
         if(mag > 0){
             //this *= ((float) 1)/mag;
@@ -35,7 +35,7 @@ public class Vector3 {
         }
     }
 
-    Vector3 scaleBy(float value){
+    public Vector3 scaleBy(float value){
         x *= value;
         y *= value;
         z *= value;
@@ -43,41 +43,41 @@ public class Vector3 {
                     //nvm figured it out it's the main vector
     }
 
-    Vector3 addThis(float value){
+    public Vector3 addThis(float value){
         x += value;
         y += value;
         z += value;
         return this;
     }
 
-    Vector3 subtractThis(float value){
+    public Vector3 subtractThis(float value){
         x -= value;
         y -= value;
         z -= value;
         return this;
     }
 
-    void addScaled(Vector3 vector, float scale){
+    public void addScaled(Vector3 vector, float scale){
         x += vector.x * scale;
         y += vector.y * scale;
         z += vector.z * scale;
     }
 
     //generate component product
-    Vector3 componentProduct(Vector3 vector){
+    public Vector3 componentProduct(Vector3 vector){
         return new Vector3(x*vector.x,
                            y*vector.y,
                            z*vector.z);
     }
 
     //generate component product and replace current vector w/ this one
-    void componentProductUpdate(Vector3 vector){
+    public void componentProductUpdate(Vector3 vector){
         x *= vector.x;
         y *= vector.y;
         z *= vector.z;
     }
 
-    float scalarProduct(Vector3 vector){
+    public float scalarProduct(Vector3 vector){
         return x * vector.x + y * vector.y + z * vector.z;
     }
     //calculates the vector product of the current vector and the given vector

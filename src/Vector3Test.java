@@ -61,6 +61,13 @@ public class Vector3Test {
     }
 
     @Test
+    public void scalarProduct(){
+        Vector3 vector1 = new Vector3(2,5,10);
+        float a = vector1.scalarProduct(vector1);
+        assertEquals(129,a);
+    }
+
+    @Test
     public void vectorProduct(){
         Vector3 vector1 = new Vector3(2,5,10);
         Vector3 vector2 = new Vector3(1,2,3);
@@ -77,10 +84,4 @@ public class Vector3Test {
         float a = vector1.x + vector1.y + vector1.z;
         assertEquals(-2,a);
     }
-
-
-
-
-
-
 }
